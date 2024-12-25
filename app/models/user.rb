@@ -1,8 +1,12 @@
 class User < ApplicationRecord
-has_many :comments
-has_many :bookmarks
-has_many :posts, through: :bookmarks
+  authenticates_with_sorcery!
 
-validates :name, presence: true
-validates :email, presence: true, uniquness: true
+  attr_accessor :password_confirmation
+
+  has_many :comments
+  has_many :bookmarks
+  has_many :posts, through: :bookmarks
+
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
 end
