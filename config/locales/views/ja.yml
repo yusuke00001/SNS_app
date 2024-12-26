@@ -1,3 +1,24 @@
 ja:
   flash:
-    
+    users:
+      create:
+        success: ユーザー登録に成功しました
+    user_sessions:
+      create:
+        success: ログインに成功しました
+        error: ログインに失敗しました
+      destroy:
+        logout: ログアウトしました
+  helpers:
+    label:
+      email: メールアドレス
+      password: パスワード
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+  layouts:
+    application:
+      login: ログイン
+      logout: ログアウト
+      new_user: 新規登録
