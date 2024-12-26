@@ -23,6 +23,16 @@
   </head>
 
   <body>
+    <% flash.each do |key, messages| %>
+      <div class="alert <%= key == "notice" ? "alert-success" : "alert-danger" %>">
+        <% if messages.is_a?(Array) %>
+          <% messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% else %>
+          <%= messages %>  
+        <% end %>
+      </div>
     <%= yield %>
   </body>
 </html>
