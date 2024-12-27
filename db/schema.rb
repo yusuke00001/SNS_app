@@ -35,6 +35,8 @@ ActiveRecord::Schema[8.0].define(version: 0) do
     t.text "description"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
+    t.integer "user_id"
+    t.index ["user_id"], name: "posts_user_id_idx"
   end
 
   create_table "users", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -49,4 +51,5 @@ ActiveRecord::Schema[8.0].define(version: 0) do
   add_foreign_key "bookmarks", "users", name: "bookmarks_user_id"
   add_foreign_key "comments", "posts", name: "comments_post_id"
   add_foreign_key "comments", "users", name: "comments_user_id"
+  add_foreign_key "posts", "users", name: "posts_user_id"
 end
