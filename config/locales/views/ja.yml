@@ -9,10 +9,6 @@ ja:
         error: ログインに失敗しました
       destroy:
         logout: ログアウトしました
-  helpers:
-    label:
-      email: メールアドレス
-      password: パスワード
   user_sessions:
     new:
       title: ログイン
@@ -23,3 +19,7 @@ ja:
       logout: ログアウト
       new_user: 新規登録
       posts: 投稿一覧
+  posts:
+    new:
+      title: 投稿フォーム
+      register: 登録

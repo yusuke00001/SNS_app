@@ -1,0 +1,18 @@
+<div class="container mt-5">  
+  <div class="card mx-auto" style="max-width: 500px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+    <h3><%= t('.title')%></h3>
+    <div class="card-body">
+      <%= form_with(model: @posts, class: "needs-calidation") do |form| %>
+        <div class="mb-3">
+          <%= form.label :title, class: "form-label" %>
+          <%= form.text_field :title, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :content, class: "form-label" %>
+          <%= form.text_area :content, class: "form-control", rows:"5" %>
+        </div>
+        <%= form.submit t('.register') %>
+      <% end %>
+    </div>
+  </div>
+</div>
