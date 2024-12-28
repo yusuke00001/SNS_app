@@ -35,6 +35,7 @@
               <% if logged_in? %>
                 <%= link_to t('.logout'), logout_path, data: { turbo_method: :delete } %>
                 <%= link_to t('.posts'), posts_path %>
+                <%= link_to t('.post'), new_post_path %>
               <% else %>
                 <%= link_to t('.login'), login_path %>
                 <%= link_to t('.new_user'), new_user_path %>

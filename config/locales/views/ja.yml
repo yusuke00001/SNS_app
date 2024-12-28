@@ -9,6 +9,13 @@ ja:
         error: ログインに失敗しました
       destroy:
         logout: ログアウトしました
+    posts:
+      create:
+        success: 投稿に成功しました
+      destroy:
+        success: 投稿を削除しました
+      update:
+        success: 投稿を更新しました
   user_sessions:
     new:
       title: ログイン
@@ -19,7 +26,24 @@ ja:
       logout: ログアウト
       new_user: 新規登録
       posts: 投稿一覧
+      post: 新規投稿
   posts:
     new:
       title: 投稿フォーム
       register: 登録
+    index:
+      title: 投稿一覧
+      post_day: 投稿日
+      user: 投稿者
+      detail: 詳細情報
+    edit:
+      update: 更新
+      title: 編集フォーム
+      back: 詳細に戻る
+    show:
+      comment: コメント一覧
+      title: 投稿詳細
+      edit: 編集
+      delete: 削除
+      comment_form: コメント投稿
+      submit: 送信

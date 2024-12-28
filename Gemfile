@@ -66,3 +66,5 @@ gem 'dotenv-rails'
 gem "rails-i18n"
 gem 'sorcery'
 gem 'bcrypt', '~> 3.1.7'
+gem 'pry-byebug'
+gem 'pry'

@@ -10,4 +10,6 @@ ja:
         password_confirmation: パスワード確認
       post:
         title: タイトル
+        description: 内容
+      comment:
         content: 内容

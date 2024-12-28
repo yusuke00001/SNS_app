@@ -11,7 +11,14 @@
           <%= form.label :description, class: "form-label" %>
           <%= form.text_area :description, class: "form-control", rows:"5" %>
         </div>
-        <%= form.submit t('.register') %>
+        <div class="row justify-content-between">
+          <div class="col-auto">
+            <%= form.submit t('.update'), class:"btn btn-primary" %>
+          </div>
+          <div class="col-auto text-end">
+            <%= link_to t('.back'), post_path(@post)%>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
