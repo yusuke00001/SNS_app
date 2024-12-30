@@ -52,7 +52,7 @@
                 <% if comment.user.id == current_user.id %>
                   <div class="row justify-content-end ">
                     <div class="col-auto">
-                      <%= link_to t('.edit'), class:"btn btn-primary" %>
+                      <%= link_to t('.edit'), edit_post_comment_path(@post, comment) %>
                     </div>
                     <div class="col-auto">
                       <%= link_to t('.delete'), post_comment_path(@post, comment), data:{ turbo_method: :delete } %>

@@ -21,6 +21,8 @@ ja:
         success: コメントの投稿に成功しました
       destroy:
         success: コメントの削除に成功しました
+      update:
+        success: コメントの更新に成功しました
   helpers:
     label:
       email: メールアドレス
@@ -57,3 +59,8 @@ ja:
       comment_form: コメント投稿
       submit: 送信
       comment_nil: 現在コメントがありません
+  comments:
+    edit:
+      title: 投稿
+      submit: 更新
+      comment_title: コメント編集フォーム
