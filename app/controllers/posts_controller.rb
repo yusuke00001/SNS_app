@@ -21,6 +21,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(:user).find(params[:id])
+    @comment = @post.comments.build
+    @comments = @post.comments
   end
 
   def edit
@@ -43,7 +45,7 @@ class PostsController < ApplicationController
       flash[:notice] = t('flash.posts.destroy.success')
       redirect_to posts_path
     else
-      flash.now[:alert] = @post.error.full_messages
+      flash.now[:alert] = @post.errors.full_messages
       render :index, status: :unprocessable_entity
     end
   end
