@@ -18,7 +18,13 @@ ja:
         success: 投稿を更新しました
     comments:
       create:
-        success: 投稿に成功しました
+        success: コメントの投稿に成功しました
+      destroy:
+        success: コメントの削除に成功しました
+  helpers:
+    label:
+      email: メールアドレス
+      password: パスワード
   user_sessions:
     new:
       title: ログイン
