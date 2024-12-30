@@ -16,6 +16,9 @@ ja:
         success: 投稿を削除しました
       update:
         success: 投稿を更新しました
+    comments:
+      create:
+        success: 投稿に成功しました
   user_sessions:
     new:
       title: ログイン
