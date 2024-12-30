@@ -56,3 +56,4 @@ ja:
       delete: 削除
       comment_form: コメント投稿
       submit: 送信
+      comment_nil: 現在コメントがありません
