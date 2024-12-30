@@ -24,6 +24,23 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.includes(:post, :user).find(params[:id])
+    @post = @comment.post
+  end
+
+  def update
+    @comment = Comment.includes(:post).find(params[:id])
+    @post = @comment.post
+    if @comment.update(comment_params)
+      flash[:notice] = t('flash.comments.update.success')
+      redirect_to post_path(@post)
+    else
+      flash.now[:alert] = @comment.errors.full_messages
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def comment_params
     params.require(:comment).permit(:content, :user_id)
   end
