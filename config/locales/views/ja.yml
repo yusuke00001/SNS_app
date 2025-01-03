@@ -23,6 +23,10 @@ ja:
         success: コメントの削除に成功しました
       update:
         success: コメントの更新に成功しました
+    bookmarks:
+      create:
+        success: いいねしました
+        error: いいねを解除しました
   helpers:
     label:
       email: メールアドレス
@@ -38,6 +42,7 @@ ja:
       new_user: 新規登録
       posts: 投稿一覧
       post: 新規投稿
+      bookmark: お気に入り一覧
   posts:
     new:
       title: 投稿フォーム
@@ -59,6 +64,7 @@ ja:
       comment_form: コメント投稿
       submit: 送信
       comment_nil: 現在コメントがありません
+      like: いいね
   comments:
     edit:
       title: 投稿

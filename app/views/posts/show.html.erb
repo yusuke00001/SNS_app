@@ -17,6 +17,15 @@
             <div class="col-auto">
               <%= button_to t('.delete'), post_path(@post), method: :delete, class: "btn btn-danger" %>
             </div>
+            <div class="col-auto">
+              <%= form_with url: bookmarks_path(@post), method: :post, class: "d-inline" do %>
+                <%= hidden_field_tag "bookmark[post_id]", @post.id %>
+                <%= hidden_field_tag "bookmark[user_id]", current_user.id%>
+                <button type="submit" class="btn btn-outline-danger">
+                  <i class="fa-solid fa-heart"></i> いいね
+                </button>
+              <% end %>
+            </div>
           </div>
         <% end%>
     </div>

@@ -45,7 +45,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem "brakeman", require: false
+  gem "brakeman", "~> 7.0.0", require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
@@ -62,9 +62,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'dotenv-rails'
+gem "dotenv-rails"
 gem "rails-i18n"
-gem 'sorcery'
-gem 'bcrypt', '~> 3.1.7'
-gem 'pry-byebug'
-gem 'pry'
+gem "sorcery"
+gem "bcrypt", "~> 3.1.7"
+gem "pry-byebug"
+gem "pry"

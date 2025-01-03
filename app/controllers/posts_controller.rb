@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     post.user = current_user
     if post.save
-      flash[:notice] = t('flash.posts.create.success')
+      flash[:notice] = t("flash.posts.create.success")
       redirect_to posts_path
     else
       flash.now[:alert] = post.errors.full_messages
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   def update
     post = Post.find(params[:id])
     if post.update(post_params)
-      flash[:notice] = t('flash.posts.update.success')
+      flash[:notice] = t("flash.posts.update.success")
       redirect_to posts_path
     else
       render :edit, status: :unprocessable_entity
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     if post.delete
-      flash[:notice] = t('flash.posts.destroy.success')
+      flash[:notice] = t("flash.posts.destroy.success")
       redirect_to posts_path
     else
       flash.now[:alert] = post.errors.full_messages

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     comment = post.comments.build(comment_params)
     comment.user = current_user
     if comment.save
-      flash[:notice] = t('flash.comments.create.success')
+      flash[:notice] = t("flash.comments.create.success")
       redirect_to post_path(post)
     else
       flash.now[:alert] = comment.errors.full_messages
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     comment = Comment.find(params[:id])
     if comment.delete
-      flash[:notice] = t('flash.comments.destroy.success')
+      flash[:notice] = t("flash.comments.destroy.success")
       redirect_to post_path(post)
     else
       flash.now[:alert] = comment.errors.full_messages
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     post = comment.post
     if comment.update(comment_params)
-      flash[:notice] = t('flash.comments.update.success')
+      flash[:notice] = t("flash.comments.update.success")
       redirect_to post_path(post)
     else
       flash.now[:alert] = comment.errors.full_messages
