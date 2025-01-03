@@ -1,25 +1,25 @@
 class CommentsController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(comment_params)
-    @comment.user = current_user
-    if @comment.save
+    post = Post.find(params[:post_id])
+    comment = post.comments.build(comment_params)
+    comment.user = current_user
+    if comment.save
       flash[:notice] = t('flash.comments.create.success')
-      redirect_to post_path(@post)
+      redirect_to post_path(post)
     else
-      flash.now[:alert] = @comment.errors.full_messages
+      flash.now[:alert] = comment.errors.full_messages
       render "posts/show"
     end
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
-    if @comment.delete
+    post = Post.find(params[:post_id])
+    comment = Comment.find(params[:id])
+    if comment.delete
       flash[:notice] = t('flash.comments.destroy.success')
-      redirect_to post_path(@post)
+      redirect_to post_path(post)
     else
-      flash.now[:alert] = @comment.error.full_messages
+      flash.now[:alert] = comment.errors.full_messages
       render "post/show"
     end
   end
@@ -30,13 +30,13 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = Comment.includes(:post).find(params[:id])
-    @post = @comment.post
-    if @comment.update(comment_params)
+    comment = Comment.find(params[:id])
+    post = comment.post
+    if comment.update(comment_params)
       flash[:notice] = t('flash.comments.update.success')
-      redirect_to post_path(@post)
+      redirect_to post_path(post)
     else
-      flash.now[:alert] = @comment.errors.full_messages
+      flash.now[:alert] = comment.errors.full_messages
       render :edit, status: :unprocessable_entity
     end
   end
