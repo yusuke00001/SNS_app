@@ -1,4 +1,8 @@
 class BookmarksController < ApplicationController
+  def index
+    bookmarks = Bookmark.includes(:post).where(user_id: current_user.id)
+    @posts = bookmarks.map(&:post)
+  end
   def create
     bookmark = Bookmark.new(bookmark_params)
     post = bookmark.post

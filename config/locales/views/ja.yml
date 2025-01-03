@@ -70,3 +70,9 @@ ja:
       title: 投稿
       submit: 更新
       comment_title: コメント編集フォーム
+  bookmarks:
+    index:
+      bookmark_nil: お気に入りがありません
+      title: いいねした投稿
+      user: ユーザー
+      post_day: 投稿日
