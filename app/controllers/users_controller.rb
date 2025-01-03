@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
+    user = User.new(user_params)
+    if user.save
       flash[:notice] = t('flash.users.create.success')
       redirect_to login_path
     else
-      flash.now[:alert] =  @user.errors.full_messages
+      flash.now[:alert] =  user.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end

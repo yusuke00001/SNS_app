@@ -3,8 +3,8 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    @user = login(params[:email], params[:password])
-    if @user
+    user = login(params[:email], params[:password])
+    if user
       flash[:notice] = t('flash.user_sessions.create.success')
       redirect_to posts_path
     else
