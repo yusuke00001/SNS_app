@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user).all
+    @posts = Post.includes(:user).all.order(created_at: :asc).page(params[:page]).per(10)
   end
 
   def new
