@@ -9,8 +9,8 @@ class BookmarksController < ApplicationController
       flash[:notice] = "いいねしました!"
       redirect_to post_path(post)
     else
-      flash.now[:alert] = bookmark.errors.full_messages
-      render "post/show", status: :unprocessable_entity
+      flash[:alert] = "すでにいいねされています！"
+      redirect_to post_path(post)
     end
   end
 
