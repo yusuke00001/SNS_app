@@ -14,6 +14,17 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def destroy
+    bookmark = Bookmark.find(params[:id])
+    if bookmark.delete
+      flash[:notice] = "いいねを解除しました"
+      redirect_to bookmarks_path
+    else
+      flash[:alert] = bookmark.errors.full_messages
+      redirect_to bookmarks_path
+    end
+  end
+
   def bookmark_params
     params.require(:bookmark).permit(:user_id, :post_id)
   end
