@@ -9,4 +9,12 @@ class Bookmark < ApplicationRecord
   def send_bookmark_notification
     NotificationMailer.new_bookmark_notification(post.user, post).deliver_later
   end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ "post", "user" ]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "user_id", "post_id" ]
+  end
 end
