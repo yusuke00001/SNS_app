@@ -1,0 +1,16 @@
+<%= search_form_for q, url: url do |form| %>
+  <div class="row">
+    <div class="col">
+      <%= form.search_field :title_cont, class: "form-control", placeholder: "タイトル" %>
+    </div>
+    <div class="col">
+      <%= form.search_field :description_cont, class: "form-control", placeholder: "本文" %>
+    </div>
+    <div class="col">
+      <%= form.search_field :user_name_cont, class: "form-control", placeholder: "ユーザー名"%>
+    </div>
+    <div class="col-auto">
+      <%= form.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

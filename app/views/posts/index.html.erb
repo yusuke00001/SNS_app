@@ -1,13 +1,23 @@
 <h1 class="text-center"><%= t('.title')%></h1>
-<% @posts.each do |post| %>
-  <div class="card mb-3">
-    <div class="card-body">
-
-      <h4 class="card-title"><%= link_to post.title, post_path(post) %></h4><br>
-      <p class="card-text"><%= simple_format(post.description) %> </p>
-      <p class="card-text text-end "><%= t('.user')%>:<%= post.user.name %>
-      <p class="card-text text-end "><%= t('.post_day')%>:<%= post.created_at.strftime('%Y年%m月%d日') %></p>
-    </div>
+<div class="container mb-3">
+  <div class="row">
+    <%= render 'shared/search_form', q: @q, url: posts_path %>
   </div>
-<% end %>
+</div>
+<% if @posts.exists? %>
+  <% @posts.each do |post| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h4 class="card-title"><%= link_to post.title, post_path(post) %></h4><br>
+        <p class="card-text"><%= simple_format(post.description) %> </p>
+        <p class="card-text text-end "><%= t('.user')%>:<%= post.user.name %>
+        <p class="card-text text-end "><%= t('.post_day')%>:<%= post.created_at.strftime('%Y年%m月%d日') %></p>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <strong>検索結果はありません</strong>
+  <div>
+<% end%>
 <%= paginate @posts, theme: 'bootstrap-5'%>
