@@ -9,10 +9,10 @@ class Post < ApplicationRecord
   validates :description, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "description", "title", "user_id"]
+    [ "created_at", "description", "title", "user_id" ]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["user"]
+    [ "user" ]
   end
 end
