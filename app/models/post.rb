@@ -15,4 +15,8 @@ class Post < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     [ "user" ]
   end
+
+  def self.pagination_per_page
+    10
+  end
 end
