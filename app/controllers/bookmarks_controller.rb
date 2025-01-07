@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
   def index
-    @q = Bookmark.ransack(params[:q])
-    @bookmarks = @q.result(distinct: true).includes(:post).where(user_id: current_user.id).order(created_at: :asc).page(params[:page]).per(10)
+    @q = current_user.bookmarks.ransack(params[:q])
+    @bookmarks = @q.result(distinct: true).includes(:post).order(created_at: :asc).page(params[:page]).per(10)
   end
   def create
     bookmark = Bookmark.new(bookmark_params)
