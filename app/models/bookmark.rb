@@ -17,4 +17,8 @@ class Bookmark < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     [ "user_id", "post_id" ]
   end
+
+  def self.pagination_per_page
+    10
+  end
 end
