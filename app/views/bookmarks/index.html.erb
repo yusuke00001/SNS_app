@@ -1,6 +1,6 @@
+<h3 class="text-center"><%= t('.title')%></h3>
 <%= render 'search_form', q: @search, url: bookmarks_path %>
 <% if @bookmarks.present?%>
-  <h3 class="text-center"><%= t('.title')%></h3>
   <% @bookmarks.each do |bookmark| %>
     <div class="card mb-3">
       <div class="card-body">
