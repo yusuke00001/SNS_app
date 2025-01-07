@@ -1,7 +1,7 @@
 <h1 class="text-center"><%= t('.title')%></h1>
 <div class="container mb-3">
   <div class="row">
-    <%= render 'search_form', q: @q, url: posts_path %>
+    <%= render 'search_form', q: @search, url: posts_path %>
   </div>
 </div>
 <% if @posts.exists? %>
