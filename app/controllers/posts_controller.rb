@@ -6,7 +6,6 @@ class PostsController < ApplicationController
     @total_posts = @search.result(distinct: true).includes(:user).count
     @previous_page = @page > 1 ? @page - 1 : nil
     @next_page = @total_posts > @page * (Post.pagination_per_page) ? @page + 1 : nil
-    @items = @posts
   end
 
   def new
