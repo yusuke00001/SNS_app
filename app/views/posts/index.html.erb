@@ -5,7 +5,7 @@
   </div>
 </div>
 <% if @posts.exists? %>
-  <turbo-frame id = posts>
+  <turbo-frame>
     <%= render @posts %>
   </turbo-frame>
 <% else %>
