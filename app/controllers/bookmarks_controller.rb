@@ -1,11 +1,12 @@
 class BookmarksController < ApplicationController
   def index
+    @search = Post.ransack(params[:q])  # Ransackを使って検索クエリを処理
     @page = (params[:page].to_i > 0) ? params[:page].to_i : 1
-    @search = current_user.bookmarks.ransack(params[:q])
-    @bookmarks = @search.result(distinct: true).includes(:post).offset((@page - 1)*(Bookmark.pagination_per_page)).limit(Bookmark.pagination_per_page)
-    @total_bookmarks = @search.result(distinct: true).includes(:post).count
+    @bookmarks = current_user.bookmarks.ransack(params[:q]).result(distinct: true).includes(:post)
+    @bookmarks = @bookmarks.offset((@page - 1) * Post.pagination_per_page).limit(Post.pagination_per_page)
+    @total_posts = @bookmarks.count
     @previous_page = @page > 1 ? @page - 1 : nil
-    @next = @total_bookmarks > @page * (Bookmark.pagination_per_page) ? @page + 1 : nil
+    @next_page = @total_posts > @page * Post.pagination_per_page ? @page + 1 : nil
   end
   def create
     bookmark = Bookmark.new(bookmark_params)

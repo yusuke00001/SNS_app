@@ -5,13 +5,9 @@
     <%= render @bookmarks %>
   </turbo-frame>
   <div class=" page container d-flex justify-content-center">
-  <% if @previous_page %>
-    <%= link_to 'Previous', bookmarks_path(page: @previous_page), data: { turbo: false }, class: "mx-2" %>
-  <% end %>
+  <%= link_to 'Previous', bookmarks_path(page: @previous_page), data: { turbo: false }, class: "mx-2" if @previous_page %>
   <%= @page %>
-  <% if @next_page %>
-    <%= link_to 'Next', bookmarks_path(page: @next_page), data: { turbo: false }, class: "mx-2" %>
-  <% end %>
+  <%= link_to 'Next', bookmarks_path(page: @next_page), data: { turbo: false }, class: "mx-2" if @next_page %>
   </div>
 <% else %>
   <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
