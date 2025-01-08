@@ -6,7 +6,9 @@
 </div>
 <% if @posts.exists? %>
   <turbo-frame>
-    <%= render 'shared/pagination', posts: @items %>
+    <% @posts.each do |post| %>
+      <%= render 'shared/pagination', item: post %>
+    <% end %>
   </turbo-frame>
   <div class=" page container d-flex justify-content-center">
   <%= link_to 'Previous', posts_path(page: @previous_page), data: { turbo: false }, class: "mx-2" if @previous_page %>
