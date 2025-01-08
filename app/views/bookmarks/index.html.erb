@@ -1,26 +1,16 @@
 <h3 class="text-center"><%= t('.title')%></h3>
 <%= render 'search_form', q: @search, url: bookmarks_path %>
 <% if @bookmarks.present?%>
-  <% @bookmarks.each do |bookmark| %>
-    <div class="card mb-3">
-      <div class="card-body">
-        <h4 class="card-title"><%= link_to bookmark.post.title, post_path(bookmark.post.id) %></h4><br>
-        <p class="card-text"><%= simple_format(bookmark.post.description) %> </p>
-          <p class="card-text text-end "><%= t('.user')%>:<%= bookmark.user.name %></p>
-          <div class="d-flex justify-content-between">
-            <%= form_with url: bookmark_path(bookmark), method: :delete, class: "d-inline" do %>
-              <button type="submit" class="btn btn-outline-danger">
-                <i class="fa-solid fa-heart"></i> いいね解除
-              </button>
-            <% end %>
-            <p class="card-text"><%= t('.post_day')%>:<%= bookmark.created_at.strftime('%Y年%m月%d日') %></p>
-          </div>
-      </div>
-    </div>
-  <% end %>
+  <turbo-frame>
+    <%= render @bookmarks %>
+  </turbo-frame>
+  <div class=" page container d-flex justify-content-center">
+    <%= link_to "Previous", bookmarks_path(page: @previous_page), data: { turbo: false }, class:"mx-2" if @previous_page %>
+    <%= @page %>
+    <%= link_to "Next", bookmarks_path(page: @next_page), data: { turbo: false }, class:"mx-2" if @next_page %>
+  </div>
 <% else %>
   <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <strong><%= t('.bookmark_nil')%></strong>
   </div>
 <% end %>
-<%= paginate @bookmarks, theme: 'bootstrap-5'%>
