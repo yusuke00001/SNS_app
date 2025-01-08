@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   def index
-    page = (params[:page].to_i > 0) ? params[:page].to_i : 1
+    @page = (params[:page].to_i > 0) ? params[:page].to_i : 1
     @search = Post.ransack(params[:q])
-    @posts = @search.result(distinct: true).includes(:user).offset((page - 1)*(Post.pagination_per_page)).limit(Post.pagination_per_page)
+    @posts = @search.result(distinct: true).includes(:user).offset((@page - 1)*(Post.pagination_per_page)).limit(Post.pagination_per_page)
     @total_posts = @search.result(distinct: true).includes(:user).count
-    @previous_page = page > 1 ? page - 1 : nil
-    @next_page = @total_posts > page * (Post.pagination_per_page) ? page + 1 : nil
-    @page = page
+    @previous_page = @page > 1 ? @page - 1 : nil
+    @next_page = @total_posts > @page * (Post.pagination_per_page) ? @page + 1 : nil
+    @items = @posts
   end
 
   def new
@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    binding.pry
     @post = Post.includes(:user).find(params[:id])
     @comment = @post.comments.build
     @comments = @post.comments.includes(:user)

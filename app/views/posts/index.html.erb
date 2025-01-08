@@ -6,15 +6,15 @@
 </div>
 <% if @posts.exists? %>
   <turbo-frame>
-    <%= render @posts %>
+    <%= render 'shared/pagination', posts: @items %>
   </turbo-frame>
+  <div class=" page container d-flex justify-content-center">
+  <%= link_to 'Previous', posts_path(page: @previous_page), data: { turbo: false }, class: "mx-2" if @previous_page %>
+  <%= @page %>
+  <%= link_to 'Next', posts_path(page: @next_page), data: { turbo: false }, class: "mx-2" if @next_page %>
+</div>
 <% else %>
   <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <strong>検索結果はありません</strong>
   <div>
 <% end %>
-<div class=" page container d-flex justify-content-center">
-  <%= link_to 'Previous', posts_path(page: @previous_page), data: { turbo: false }, class: "mx-2" if @previous_page %>
-  <%= @page %>
-  <%= link_to 'Next', posts_path(page: @next_page), data: { turbo: false }, class: "mx-2" if @next_page %>
-</div>
