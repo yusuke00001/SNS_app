@@ -76,9 +76,6 @@ ja:
       title: いいねした投稿
       user: ユーザー
       post_day: 投稿日
-  shared:
-    pagination:
-      bookmark_nil: お気に入りがありません
-      title: いいねした投稿
+    _post:
       user: ユーザー
       post_day: 投稿日
