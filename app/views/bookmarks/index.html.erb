@@ -2,7 +2,7 @@
 <%= render 'search_form', q: @search, url: bookmarks_path %>
 <% if @bookmarks.present?%>
   <turbo-frame>
-    <%= render @bookmarks %>
+    <%= render partial: 'bookmark', collection: @bookmarks %>
   </turbo-frame>
   <div class=" page container d-flex justify-content-center">
   <%= link_to 'Previous', bookmarks_path(page: @previous_page), data: { turbo: false }, class: "mx-2" if @previous_page %>
