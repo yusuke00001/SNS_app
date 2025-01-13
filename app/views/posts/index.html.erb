@@ -9,9 +9,9 @@
     <%= render @posts %>
   </turbo-frame>
   <div class=" page container d-flex justify-content-center">
-  <%= link_to 'Previous', posts_path(page: @previous_page), data: { turbo: false }, class: "mx-2" if @previous_page %>
+  <%= link_to 'Previous', posts_path(page: @previous_page), data: { turbo_frame: "_top" }, class: "mx-2" if @previous_page %>
   <%= @page %>
-  <%= link_to 'Next', posts_path(page: @next_page), data: { turbo: false }, class: "mx-2" if @next_page %>
+  <%= link_to 'Next', posts_path(page: @next_page), data: { turbo_frame: "_top" }, class: "mx-2" if @next_page %>
 </div>
 <% else %>
   <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
